@@ -56,43 +56,48 @@ export default function ContactSection() {
   };
 
   if (success) {
-    return (
-      <section id="contact" className="py-20 bg-black/40">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="max-w-2xl mx-auto text-center"
+      return (
+    <section id="contact" className="section-padding bg-canvas-subtle">
+      <div className="container-gh">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mb-8 mx-auto">
+            <span className="text-3xl">✓</span>
+          </div>
+          <h2 className="heading-2 mb-4">Thank You!</h2>
+          <p className="body-large text-secondary">
+            We've received your message and will get back to you soon.
+          </p>
+          <button
+            onClick={() => setSuccess(false)}
+            className="btn-primary mt-8"
           >
-            <h2 className="text-4xl font-bold mb-4 text-gradient">Thank You!</h2>
-            <p className="text-xl text-gray-300">
-              We've received your message and will get back to you soon.
-            </p>
-            <button
-              onClick={() => setSuccess(false)}
-              className="button-primary mt-8"
-            >
-              Send Another Message
-            </button>
-          </motion.div>
-        </div>
-      </section>
-    );
+            Send Another Message
+          </button>
+        </motion.div>
+      </div>
+    </section>
+  );
   }
 
   return (
-    <section id="contact" className="py-20 bg-black/40">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="section-padding bg-canvas-subtle">
+      <div className="container-gh">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl font-bold mb-8 text-gradient text-center">Get in Touch</h2>
-          <p className="text-xl text-gray-300 mb-12 text-center">
-            Ready to start your journey in Data Science & AI? Contact us today!
-          </p>
+          <div className="text-center mb-12">
+            <h2 className="heading-2 mb-4">Get in Touch</h2>
+            <p className="body-large text-secondary">
+              Ready to start your journey in Data Science & AI? Contact us today!
+            </p>
+          </div>
 
           {error && (
             <div className="bg-red-500/10 border border-red-500 text-red-500 px-4 py-3 rounded-lg mb-6">
@@ -102,7 +107,7 @@ export default function ContactSection() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
                 Full Name
               </label>
               <input
@@ -113,13 +118,13 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-                className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/20 text-white disabled:opacity-50"
+                className="form-input disabled:opacity-50"
                 placeholder="Enter your full name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
                 Email Address
               </label>
               <input
@@ -130,13 +135,13 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-                className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/20 text-white disabled:opacity-50"
+                className="form-input disabled:opacity-50"
                 placeholder="Enter your email address"
               />
             </div>
 
             <div>
-              <label htmlFor="pathway" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="pathway" className="block text-sm font-medium text-primary mb-2">
                 Interested Pathway
               </label>
               <select
@@ -145,7 +150,7 @@ export default function ContactSection() {
                 value={formData.pathway}
                 onChange={handleChange}
                 disabled={isLoading}
-                className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/20 text-white disabled:opacity-50"
+                className="form-input disabled:opacity-50"
               >
                 <option value="tech">Tech Industry</option>
                 <option value="biotech">Biotech & Pharma</option>
@@ -153,7 +158,7 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
                 Message
               </label>
               <textarea
@@ -164,7 +169,7 @@ export default function ContactSection() {
                 required
                 disabled={isLoading}
                 rows={4}
-                className="w-full px-4 py-3 bg-black/40 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/20 text-white disabled:opacity-50"
+                className="form-input disabled:opacity-50 resize-none"
                 placeholder="Tell us about your goals and interests"
               />
             </div>
@@ -174,7 +179,7 @@ export default function ContactSection() {
               whileTap={{ scale: isLoading ? 1 : 0.98 }}
               type="submit"
               disabled={isLoading}
-              className="w-full button-primary disabled:opacity-50"
+              className="w-full btn-primary disabled:opacity-50 justify-center"
             >
               {isLoading ? <LoadingSpinner /> : 'Send Message'}
             </motion.button>

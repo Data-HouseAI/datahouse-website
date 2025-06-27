@@ -48,10 +48,10 @@ export default function AdminPanel() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white p-8">
-        <div className="container mx-auto">
+      <div className="min-h-screen bg-canvas">
+        <div className="container-gh py-16">
           <div className="flex items-center justify-center min-h-[400px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-2 border-transparent border-t-accent border-r-accent"></div>
           </div>
         </div>
       </div>
@@ -59,65 +59,83 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white p-8">
-      <div className="container mx-auto">
+    <div className="min-h-screen bg-canvas">
+      <div className="container-gh py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl font-bold mb-8 text-gradient">Contact Form Submissions</h1>
+          <div className="mb-12">
+            <h1 className="heading-1 mb-4">Contact Form Submissions</h1>
+            <p className="body-large text-secondary">
+              Manage and review contact form submissions from potential students.
+            </p>
+          </div>
           
           {error && (
-            <div className="bg-red-500/10 border border-red-500 text-red-400 px-4 py-3 rounded-lg mb-6">
+            <div className="bg-red-500/10 border border-red-500 text-red-500 px-4 py-3 rounded-lg mb-6">
               {error}
             </div>
           )}
 
-          <div className="mb-4 flex justify-between items-center">
-            <p className="text-gray-400">Total submissions: {submissions.length}</p>
+          <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div className="flex items-center space-x-4">
+              <span className="badge">Total: {submissions.length}</span>
+              <span className="body-small text-muted">submissions received</span>
+            </div>
             <button
               onClick={fetchSubmissions}
-              className="button-secondary"
+              className="btn-secondary"
             >
-              Refresh
+              🔄 Refresh
             </button>
           </div>
 
           {submissions.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-gray-400 text-lg">No submissions yet.</p>
+            <div className="card text-center py-16">
+              <div className="w-16 h-16 bg-canvas-subtle rounded-full flex items-center justify-center mb-6 mx-auto">
+                <span className="text-2xl">📝</span>
+              </div>
+              <h3 className="heading-3 mb-2">No submissions yet</h3>
+              <p className="body-medium text-secondary">
+                Contact form submissions will appear here once students start reaching out.
+              </p>
             </div>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-6">
               {submissions.map((submission) => (
                 <motion.div
                   key={submission.id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="bg-black/40 p-6 rounded-xl border border-gray-700"
+                  className="card hover-lift"
                 >
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="text-xl font-semibold">{submission.name}</h3>
-                      <p className="text-gray-400">{submission.email}</p>
+                  <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-6">
+                    <div className="flex-1">
+                      <h3 className="heading-4 mb-1">{submission.name}</h3>
+                      <p className="text-accent font-medium">{submission.email}</p>
                     </div>
-                    <div className="text-right">
-                      <span className={`px-3 py-1 rounded-full text-sm ${
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <span className={`badge ${
                         submission.pathway === 'tech' 
-                          ? 'bg-blue-500/20 text-blue-400' 
-                          : 'bg-green-500/20 text-green-400'
+                          ? 'badge-primary' 
+                          : 'badge-success'
                       }`}>
-                        {submission.pathway === 'tech' ? 'Tech Industry' : 'Biotech & Pharma'}
+                        {submission.pathway === 'tech' ? '💻 Tech Industry' : '🧬 Biotech & Pharma'}
                       </span>
-                      <p className="text-gray-500 text-sm mt-1">
+                      <span className="body-small text-muted">
                         {submission.created_at && formatDate(submission.created_at)}
-                      </p>
+                      </span>
                     </div>
                   </div>
-                  <div className="bg-black/20 p-4 rounded-lg">
-                    <h4 className="text-sm font-medium text-gray-300 mb-2">Message:</h4>
-                    <p className="text-gray-100 whitespace-pre-wrap">{submission.message}</p>
+                  <div className="bg-canvas-subtle p-4 rounded-lg border border-default">
+                    <h4 className="body-small font-medium text-secondary mb-2 uppercase tracking-wide">
+                      Message
+                    </h4>
+                    <p className="body-medium text-primary whitespace-pre-wrap leading-relaxed">
+                      {submission.message}
+                    </p>
                   </div>
                 </motion.div>
               ))}
