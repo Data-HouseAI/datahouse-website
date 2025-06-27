@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { supabase } from '@/lib/supabase';
 import LoadingSpinner from './LoadingSpinner';
 
@@ -56,45 +55,36 @@ export default function ContactSection() {
   };
 
   if (success) {
-      return (
-    <section id="contact" className="section-padding bg-canvas-subtle">
-      <div className="container-gh">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mb-8 mx-auto">
-            <span className="text-3xl">✓</span>
+    return (
+      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-8 mx-auto">
+              <span className="text-3xl">✓</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Thank You!</h2>
+            <p className="text-lg md:text-xl text-gray-300">
+              We've received your message and will get back to you soon.
+            </p>
+            <button
+              onClick={() => setSuccess(false)}
+              className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md bg-green-600 text-white border border-green-600 hover:bg-green-700 hover:border-green-700 transition-all duration-200 mt-8"
+            >
+              Send Another Message
+            </button>
           </div>
-          <h2 className="heading-2 mb-4">Thank You!</h2>
-          <p className="body-large text-secondary">
-            We've received your message and will get back to you soon.
-          </p>
-          <button
-            onClick={() => setSuccess(false)}
-            className="btn-primary mt-8"
-          >
-            Send Another Message
-          </button>
-        </motion.div>
-      </div>
-    </section>
-  );
+        </div>
+      </section>
+    );
   }
 
   return (
-    <section id="contact" className="section-padding bg-canvas-subtle">
-      <div className="container-gh">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-2xl mx-auto"
-        >
+    <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+      <div className="max-w-7xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="heading-2 mb-4">Get in Touch</h2>
-            <p className="body-large text-secondary">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Get in Touch</h2>
+            <p className="text-lg md:text-xl text-gray-300">
               Ready to start your journey in Data Science & AI? Contact us today!
             </p>
           </div>
@@ -107,7 +97,7 @@ export default function ContactSection() {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                 Full Name
               </label>
               <input
@@ -118,13 +108,13 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-                className="form-input disabled:opacity-50"
+                className="w-full px-3 py-2 border rounded-md text-sm transition-colors bg-gray-950 border-gray-700 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 focus:outline-none placeholder:text-gray-400 disabled:opacity-50"
                 placeholder="Enter your full name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                 Email Address
               </label>
               <input
@@ -135,13 +125,13 @@ export default function ContactSection() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-                className="form-input disabled:opacity-50"
+                className="w-full px-3 py-2 border rounded-md text-sm transition-colors bg-gray-950 border-gray-700 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 focus:outline-none placeholder:text-gray-400 disabled:opacity-50"
                 placeholder="Enter your email address"
               />
             </div>
 
             <div>
-              <label htmlFor="pathway" className="block text-sm font-medium text-primary mb-2">
+              <label htmlFor="pathway" className="block text-sm font-medium text-white mb-2">
                 Interested Pathway
               </label>
               <select
@@ -150,7 +140,7 @@ export default function ContactSection() {
                 value={formData.pathway}
                 onChange={handleChange}
                 disabled={isLoading}
-                className="form-input disabled:opacity-50"
+                className="w-full px-3 py-2 border rounded-md text-sm transition-colors bg-gray-950 border-gray-700 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 focus:outline-none disabled:opacity-50"
               >
                 <option value="tech">Tech Industry</option>
                 <option value="biotech">Biotech & Pharma</option>
@@ -158,7 +148,7 @@ export default function ContactSection() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
+              <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                 Message
               </label>
               <textarea
@@ -169,22 +159,20 @@ export default function ContactSection() {
                 required
                 disabled={isLoading}
                 rows={4}
-                className="form-input disabled:opacity-50 resize-none"
+                className="w-full px-3 py-2 border rounded-md text-sm transition-colors bg-gray-950 border-gray-700 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-25 focus:outline-none placeholder:text-gray-400 disabled:opacity-50 resize-none"
                 placeholder="Tell us about your goals and interests"
               />
             </div>
 
-            <motion.button
-              whileHover={{ scale: isLoading ? 1 : 1.02 }}
-              whileTap={{ scale: isLoading ? 1 : 0.98 }}
+            <button
               type="submit"
               disabled={isLoading}
-              className="w-full btn-primary disabled:opacity-50 justify-center"
+              className="w-full inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md bg-green-600 text-white border border-green-600 hover:bg-green-700 hover:border-green-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-green-500 disabled:opacity-50"
             >
               {isLoading ? <LoadingSpinner /> : 'Send Message'}
-            </motion.button>
+            </button>
           </form>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

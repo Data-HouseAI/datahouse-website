@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const biotechCourses = [
   {
@@ -34,88 +33,79 @@ const careerOutcomes = [
 
 export default function BiotechPathway() {
   return (
-    <main className="min-h-screen bg-canvas pt-16">
-      <div className="container-gh">
+    <main className="min-h-screen bg-gray-950 pt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <section className="section-padding">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-8 mx-auto">
+        <section className="py-16">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-8 mx-auto">
               <span className="text-3xl">🧬</span>
             </div>
-            <h1 className="heading-1 mb-6">Biotech & Pharma Pathway</h1>
-            <p className="body-large text-secondary mb-12 max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white mb-6">Biotech & Pharma Pathway</h1>
+            <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
               Shape the future of healthcare and pharmaceutical research with advanced data science and AI techniques. 
               Learn to analyze complex biological data and contribute to groundbreaking discoveries.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary text-base px-8 py-3">
+              <button className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md bg-green-600 text-white border border-green-600 hover:bg-green-700 hover:border-green-700 transition-all duration-200">
                 Enroll Now
               </button>
-              <button className="btn-secondary text-base px-8 py-3">
+              <button className="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-md bg-gray-800 text-white border border-gray-700 hover:bg-gray-700 hover:border-gray-600 transition-all duration-200">
                 Download Curriculum
               </button>
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* Courses Section */}
-        <section className="section-padding bg-canvas-subtle rounded-xl mb-16">
-          <div className="text-center mb-16">
-            <h2 className="heading-2 mb-4">Specialized Courses</h2>
-            <p className="body-large text-secondary max-w-2xl mx-auto">
-              Advanced curriculum tailored for biotech and pharmaceutical industry applications.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {biotechCourses.map((course, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="card hover-lift"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="heading-4">{course.title}</h3>
-                  <span className="badge">{course.level}</span>
+        <section className="py-16 bg-gray-900 rounded-xl mb-16">
+          <div className="px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Specialized Courses</h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+                Advanced curriculum tailored for biotech and pharmaceutical industry applications.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {biotechCourses.map((course, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-950 border border-gray-700 rounded-lg p-6 transition-all duration-200 hover:border-gray-600 hover:shadow-xl"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 text-white">{course.title}</h3>
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-800 text-gray-300 border border-gray-600">{course.level}</span>
+                  </div>
+                  <p className="text-base text-gray-300 mb-6">{course.description}</p>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-blue-400 font-medium">📅 {course.duration}</span>
+                    <span className="text-green-500 font-medium">⭐ {course.level}</span>
+                  </div>
                 </div>
-                <p className="body-medium text-secondary mb-6">{course.description}</p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-accent font-medium">📅 {course.duration}</span>
-                  <span className="text-success font-medium">⭐ {course.level}</span>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Career Outcomes */}
-        <section className="section-padding">
+        <section className="py-16">
           <div className="text-center mb-16">
-            <h2 className="heading-2 mb-4">Career Opportunities</h2>
-            <p className="body-large text-secondary max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Career Opportunities</h2>
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
               Enter the rapidly growing biotech and pharmaceutical industry with specialized skills in high demand.
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {careerOutcomes.map((career, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="card text-center hover-lift"
+                className="bg-gray-900 border border-gray-700 rounded-lg p-6 text-center transition-all duration-200 hover:border-gray-600 hover:shadow-xl"
               >
-                <div className="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                   <span className="text-xl">🔬</span>
                 </div>
-                <p className="font-semibold text-primary">{career}</p>
-              </motion.div>
+                <p className="font-semibold text-white">{career}</p>
+              </div>
             ))}
           </div>
         </section>
