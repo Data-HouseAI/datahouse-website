@@ -2,25 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* GitHub-inspired color scheme */
-:root {
-  --gh-canvas-default: #0d1117;
-  --gh-canvas-subtle: #161b22;
-  --gh-border-default: #30363d;
-  --gh-border-muted: #21262d;
-  --gh-fg-default: #f0f6fc;
-  --gh-fg-muted: #8b949e;
-  --gh-fg-subtle: #6e7681;
-  --gh-accent-emphasis: #1f6feb;
-  --gh-accent-fg: #58a6ff;
-  --gh-success-emphasis: #238636;
-  --gh-attention-emphasis: #9a6700;
-  --gh-danger-emphasis: #da3633;
-  --gh-neutral-emphasis: #6e7681;
-  --gh-btn-primary-bg: #238636;
-  --gh-btn-primary-hover-bg: #2ea043;
-  --gh-btn-primary-text: #ffffff;
-}
+/* GitHub-inspired design system using Tailwind CSS */
 
 * {
   box-sizing: border-box;
@@ -30,10 +12,10 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-  background-color: var(--gh-canvas-default);
-  color: var(--gh-fg-default);
+  background-color: #0d1117;
+  color: #f0f6fc;
   line-height: 1.5;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* Smooth scrolling */
@@ -73,25 +55,19 @@ html {
   }
   
   .btn-primary {
-    background-color: var(--gh-btn-primary-bg);
-    color: var(--gh-btn-primary-text);
-    border-color: var(--gh-btn-primary-bg);
+    @apply bg-green-600 text-white border-green-600;
   }
   
   .btn-primary:hover {
-    background-color: var(--gh-btn-primary-hover-bg);
-    border-color: var(--gh-btn-primary-hover-bg);
+    @apply bg-green-700 border-green-700;
   }
   
   .btn-secondary {
-    background-color: var(--gh-canvas-subtle);
-    color: var(--gh-fg-default);
-    border-color: var(--gh-border-default);
+    @apply bg-canvas-subtle text-primary border-default;
   }
   
   .btn-secondary:hover {
-    background-color: var(--gh-border-muted);
-    border-color: var(--gh-border-default);
+    @apply bg-gray-700 border-gray-600;
   }
   
   .btn-outline {
@@ -107,113 +83,96 @@ html {
   
   /* GitHub-inspired card styles */
   .card {
-    background-color: var(--gh-canvas-subtle);
-    border: 1px solid var(--gh-border-default);
-    border-radius: 8px;
-    padding: 24px;
-    transition: all 0.2s ease;
+    @apply bg-gray-900 border border-gray-700 rounded-lg p-6 transition-all duration-200;
   }
   
   .card:hover {
-    border-color: var(--gh-border-muted);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    @apply border-gray-600 shadow-xl;
   }
   
   /* GitHub-inspired input styles */
   .form-input {
-    @apply w-full px-3 py-2 border rounded-md text-sm transition-colors;
-    background-color: var(--gh-canvas-default);
-    border-color: var(--gh-border-default);
-    color: var(--gh-fg-default);
+    @apply w-full px-3 py-2 border rounded-md text-sm transition-colors bg-gray-900 border-gray-700 text-white;
   }
   
   .form-input:focus {
-    border-color: var(--gh-accent-emphasis);
-    box-shadow: 0 0 0 3px rgba(31, 111, 235, 0.1);
-    outline: none;
+    @apply border-blue-500 ring-2 ring-blue-500 ring-opacity-25 outline-none;
   }
   
   .form-input::placeholder {
-    color: var(--gh-fg-subtle);
+    @apply text-gray-400;
   }
   
   /* Text utilities */
   .text-primary {
-    color: var(--gh-fg-default);
+    @apply text-white;
   }
   
   .text-secondary {
-    color: var(--gh-fg-muted);
+    @apply text-gray-300;
   }
   
   .text-muted {
-    color: var(--gh-fg-subtle);
+    @apply text-gray-400;
   }
   
   .text-accent {
-    color: var(--gh-accent-fg);
+    @apply text-blue-400;
   }
   
   .text-success {
-    color: var(--gh-success-emphasis);
+    @apply text-green-500;
   }
   
   .text-danger {
-    color: var(--gh-danger-emphasis);
+    @apply text-red-500;
   }
   
   /* Background utilities */
   .bg-canvas {
-    background-color: var(--gh-canvas-default);
+    @apply bg-gray-950;
   }
   
   .bg-canvas-subtle {
-    background-color: var(--gh-canvas-subtle);
+    @apply bg-gray-900;
   }
   
   /* Border utilities */
   .border-default {
-    border-color: var(--gh-border-default);
+    @apply border-gray-700;
   }
   
   .border-muted {
-    border-color: var(--gh-border-muted);
+    @apply border-gray-600;
   }
   
   /* GitHub-inspired typography */
   .heading-1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-4;
-    color: var(--gh-fg-default);
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white;
   }
   
   .heading-2 {
-    @apply text-3xl md:text-4xl font-bold mb-4;
-    color: var(--gh-fg-default);
+    @apply text-3xl md:text-4xl font-bold mb-4 text-white;
   }
   
   .heading-3 {
-    @apply text-2xl md:text-3xl font-bold mb-3;
-    color: var(--gh-fg-default);
+    @apply text-2xl md:text-3xl font-bold mb-3 text-white;
   }
   
   .heading-4 {
-    @apply text-xl md:text-2xl font-bold mb-2;
-    color: var(--gh-fg-default);
+    @apply text-xl md:text-2xl font-bold mb-2 text-white;
   }
   
   .body-large {
-    @apply text-lg md:text-xl;
-    color: var(--gh-fg-muted);
+    @apply text-lg md:text-xl text-gray-300;
   }
   
   .body-medium {
-    @apply text-base;
-    color: var(--gh-fg-muted);
+    @apply text-base text-gray-300;
   }
   
   .body-small {
-    @apply text-sm;
-    color: var(--gh-fg-subtle);
+    @apply text-sm text-gray-400;
   }
   
   /* Layout utilities */
@@ -227,8 +186,7 @@ html {
   
   /* GitHub-inspired hero gradient */
   .hero-gradient {
-    background: linear-gradient(135deg, var(--gh-canvas-default) 0%, var(--gh-canvas-subtle) 100%);
-    position: relative;
+    @apply bg-gradient-to-br from-gray-950 to-gray-900 relative;
   }
   
   .hero-gradient::before {
@@ -292,21 +250,14 @@ html {
   
   /* GitHub-inspired badges */
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
-    background-color: var(--gh-canvas-subtle);
-    color: var(--gh-fg-muted);
-    border: 1px solid var(--gh-border-default);
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-800 text-gray-300 border border-gray-600;
   }
   
   .badge-primary {
-    background-color: var(--gh-accent-emphasis);
-    color: white;
-    border-color: var(--gh-accent-emphasis);
+    @apply bg-blue-600 text-white border-blue-600;
   }
   
   .badge-success {
-    background-color: var(--gh-success-emphasis);
-    color: white;
-    border-color: var(--gh-success-emphasis);
+    @apply bg-green-600 text-white border-green-600;
   }
 } 

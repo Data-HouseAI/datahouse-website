@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} bg-black text-white`}>
+      <body className={`${montserrat.className} bg-gray-950 text-white min-h-screen`}>
         <ErrorBoundary>
           <Navigation />
           {children}
