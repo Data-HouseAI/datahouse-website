@@ -27,13 +27,17 @@ export default function Navigation() {
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <Image
                 src="/1694110917778.jpeg"
-                alt="The Data House Logo"
+                alt="DataHouse"
                 width={48}
                 height={48}
                 className="w-12 h-12"
                 priority
               />
-              <span className="text-lg font-semibold text-[#24292f] dark:text-white">The Data House</span>
+              <div className="flex flex-col">
+                <span className="text-lg font-semibold text-[#24292f] dark:text-white">The Data House</span>
+                <span className="text-sm text-[#57606a] dark:text-[#8b949e]">We are here to make your data shine</span>
+                <span className="text-xs text-[#57606a] dark:text-[#8b949e] max-w-[300px] hidden md:block">Sri Lanka's Premier Data Science & AI Learning Hub</span>
+              </div>
             </Link>
 
             <div className="hidden md:flex items-center space-x-1 ml-8">

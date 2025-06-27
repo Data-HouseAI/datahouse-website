@@ -14,8 +14,8 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-12">
               <Image
-                src="/logo.svg"
-                alt="The Data House Logo"
+                src="/1694110917778.jpeg"
+                alt="DataHouse"
                 width={240}
                 height={96}
                 className="mx-auto mb-8 opacity-90"
