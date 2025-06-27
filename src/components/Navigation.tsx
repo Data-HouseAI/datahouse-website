@@ -26,11 +26,11 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <Image
-                src="/logo.svg"
+                src="/1694110917778.jpeg"
                 alt="The Data House Logo"
                 width={48}
                 height={48}
-                className="w-12 h-12 dark:invert"
+                className="w-12 h-12"
                 priority
               />
               <span className="text-lg font-semibold text-[#24292f] dark:text-white">The Data House</span>
