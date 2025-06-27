@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="80" fill="black"/>
-  <text x="100" y="35" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">THE DATA HOUSE</text>
-  <text x="100" y="55" text-anchor="middle" fill="gray" font-family="Arial, sans-serif" font-size="10">We are here to make your data shine</text>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100%" height="100%" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <path d="M 250 50 L 450 150 L 450 350 L 250 450 L 50 350 L 50 150 Z" fill="black"/>
+        <path d="M 250 100 L 400 175 L 400 325 L 250 400 L 100 325 L 100 175 Z" fill="white"/>
+        <text x="250" y="280" text-anchor="middle" font-family="Arial" font-size="40" fill="black">THE DATA HOUSE</text>
+    </g>
 </svg> 

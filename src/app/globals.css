@@ -135,11 +135,7 @@
   }
   
   .hero-gradient {
-    background-image: url('/background-ducks.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
+    @apply bg-gradient-to-br from-white to-[#f6f8fa] dark:from-[#0d1117] dark:to-[#161b22] relative;
   }
   
   .hero-gradient::before {
@@ -149,12 +145,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    background: radial-gradient(ellipse at center, rgba(9, 105, 218, 0.1) 0%, transparent 70%);
     pointer-events: none;
-  }
-  
-  .dark .hero-gradient::before {
-    background: linear-gradient(to bottom, rgba(13,17,23,0.9), rgba(13,17,23,0.7));
   }
   
   .badge {
