@@ -1,11 +1,26 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactSection from '@/components/ContactSection';
 
 export default function Home() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check if dark mode is enabled
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsDarkMode(e.matches);
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleChange);
+    return () => darkModeMediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   return (
     <main className="min-h-screen bg-white dark:bg-[#0d1117]">
       {/* Hero Section */}
@@ -14,11 +29,12 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-12">
               <Image
-                src="/logo.svg"
+                src={isDarkMode ? "/logo-dark.svg" : "/logo-white.svg"}
                 alt="The Data House Logo"
                 width={240}
                 height={96}
-                className="mx-auto mb-8 opacity-90"
+                className="mx-auto mb-8"
+                priority
               />
             </div>
             <h1 className="heading-1">

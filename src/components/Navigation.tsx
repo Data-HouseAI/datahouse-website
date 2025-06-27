@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -10,6 +10,20 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 export default function Navigation() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check if dark mode is enabled
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(darkModeMediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsDarkMode(e.matches);
+    };
+
+    darkModeMediaQuery.addEventListener('change', handleChange);
+    return () => darkModeMediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const isActive = (path: string) => pathname === path;
 
@@ -26,13 +40,13 @@ export default function Navigation() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <Image
-                src="/logo.svg"
+                src={isDarkMode ? "/logo-dark.svg" : "/logo-white.svg"}
                 alt="The Data House Logo"
-                width={40}
-                height={16}
+                width={120}
+                height={48}
                 className="w-auto h-8"
+                priority
               />
-              <span className="text-lg font-semibold text-[#24292f] dark:text-white">The Data House</span>
             </Link>
 
             <div className="hidden md:flex items-center space-x-1 ml-8">
