@@ -1,1 +1,7 @@
-{}
+{
+  "/admin/page": "app/admin/page.js",
+  "/_not-found": "app/_not-found.js",
+  "/page": "app/page.js",
+  "/pathways/biotech/page": "app/pathways/biotech/page.js",
+  "/pathways/tech/page": "app/pathways/tech/page.js"
+}
