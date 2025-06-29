@@ -90,6 +90,95 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Courses Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d1117]">
+        <div className="container-gh">
+          <div className="text-center mb-16">
+            <h2 className="heading-2">Featured Courses</h2>
+            <p className="body-large max-w-2xl mx-auto">
+              Discover our carefully curated courses designed to give you the skills needed in today's data-driven world.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="card hover:shadow-xl transition-all duration-300">
+              <div className="aspect-video bg-[#0969da1a] dark:bg-[#388bfd1a] rounded-t-lg flex items-center justify-center">
+                <span className="text-4xl">📊</span>
+              </div>
+              <div className="p-6">
+                <h3 className="heading-4 mb-2">Data Science Fundamentals</h3>
+                <p className="body-medium text-gray-600 dark:text-gray-300 mb-4">
+                  Master the basics of data analysis, statistics, and machine learning with Python.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#2da44e] dark:bg-[#3fb950] rounded-full"></span>
+                    <span className="body-small">12 Weeks</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#2da44e] dark:bg-[#3fb950] rounded-full"></span>
+                    <span className="body-small">Beginner Friendly</span>
+                  </div>
+                </div>
+                <button className="btn btn-secondary w-full justify-center">
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            <div className="card hover:shadow-xl transition-all duration-300">
+              <div className="aspect-video bg-[#0969da1a] dark:bg-[#388bfd1a] rounded-t-lg flex items-center justify-center">
+                <span className="text-4xl">🤖</span>
+              </div>
+              <div className="p-6">
+                <h3 className="heading-4 mb-2">Advanced Machine Learning</h3>
+                <p className="body-medium text-gray-600 dark:text-gray-300 mb-4">
+                  Deep dive into neural networks, deep learning, and AI model deployment.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#2da44e] dark:bg-[#3fb950] rounded-full"></span>
+                    <span className="body-small">16 Weeks</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#2da44e] dark:bg-[#3fb950] rounded-full"></span>
+                    <span className="body-small">Intermediate Level</span>
+                  </div>
+                </div>
+                <button className="btn btn-secondary w-full justify-center">
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            <div className="card hover:shadow-xl transition-all duration-300">
+              <div className="aspect-video bg-[#0969da1a] dark:bg-[#388bfd1a] rounded-t-lg flex items-center justify-center">
+                <span className="text-4xl">☁️</span>
+              </div>
+              <div className="p-6">
+                <h3 className="heading-4 mb-2">Cloud & MLOps</h3>
+                <p className="body-medium text-gray-600 dark:text-gray-300 mb-4">
+                  Learn to deploy and scale AI solutions using cloud platforms and MLOps practices.
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#2da44e] dark:bg-[#3fb950] rounded-full"></span>
+                    <span className="body-small">14 Weeks</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#2da44e] dark:bg-[#3fb950] rounded-full"></span>
+                    <span className="body-small">Advanced Level</span>
+                  </div>
+                </div>
+                <button className="btn btn-secondary w-full justify-center">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pathways Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0d1117]">
         <div className="container-gh">
